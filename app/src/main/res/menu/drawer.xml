@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/itemAboutMe"
+        android:checked="false"
+        android:icon="@drawable/avatarjae"
+        android:title="About Me" />
+
+    <item
+        android:id="@+id/itemOnHand"
+        android:checked="false"
+        android:icon="@drawable/boxes"
+        android:title="@string/viewPager" />
+
+
+    <item
+        android:id="@+id/itemInventoryPending"
+        android:checked="false"
+        android:icon="@drawable/delivery"
+        android:title="@string/recycleView" />
+
+
+    <item
+        android:id="@+id/itemInventoryUnordered"
+        android:checked="false"
+        android:icon="@drawable/greenbox"
+        android:title="@string/recycleView" />
+    <item
+        android:icon="@drawable/ic_menu_camera"
+        android:title="UnorderedInventory" />
+
+    <item
+        android:id="@+id/itemCamera"
+        android:checked="false"
+        android:icon="@drawable/ic_menu_camera"
+        android:title="Photo" />
+
+
+    <item
+        android:id="@+id/itemGoogleMap"
+        android:icon="@drawable/ic_menu_camera"
+        android:title="GoogleMap" />
+
+
+    <item
+        android:id="@+id/itemYouTube"
+        android:icon="@drawable/ic_menu_gallery"
+        android:title="YouTube App" />
+</menu>

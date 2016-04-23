@@ -1,0 +1,163 @@
+
+        public void onFragmentInteraction(int fragment) {
+            switch (fragment) {
+                case 1:
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container_main_nav, Fragment_AboutMe.newInstance("1", "2"))
+                            .addToBackStack(null)
+                            .commit();
+                    break;
+            }
+        }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_blue_share_settings, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.action_edit:
+                Toast.makeText(getApplicationContext(), "Pen Clicked", Toast.LENGTH_LONG).show();
+                return true;
+
+            case R.id.action_bluetooth:
+                Toast.makeText(getApplicationContext(), "Activity Two", Toast.LENGTH_LONG).show();
+                return true;
+
+            case R.id.action_blue_share:
+                Toast.makeText(getApplicationContext(), "Activity Three", Toast.LENGTH_LONG).show();
+                return true;
+
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);//super delegates to fragement
+    }
+
+    //  @SuppressWarnings("StatementWithEmptyBody")
+
+}
+
+
+
+
+//   Check for youtube service issues
+//  final YouTubeInitializationResult result = YouTubeApiServiceUtil.isYouTubeApiServiceAvailable(this);
+
+
+//if (result != YouTubeInitializationResult.SUCCESS) {
+//        //If there are any issues we can show an error dialog.
+//        result.getErrorDialog(this, 0).show();
+//        } else if (savedInstanceState == null) {
+//        getSupportFragmentManager()
+//        .beginTransaction()
+//        .replace(R.id.container, new MainActivityFragment())
+//        .commit();
+//        }
+//
+
+//    @Override
+//    public void onBackPressed() {
+//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        if (drawer.isDrawerOpen(GravityCompat.START)) {
+//            drawer.closeDrawer(GravityCompat.START);
+//        } else {
+//            super.onBackPressed();
+//        }
+//    }
+
+
+//    @Override
+//    public void onListItemSelected(int position, HashMap<String, ?> movie, int option) {
+//
+//        getSupportFragmentManager().beginTransaction()
+//                .replace(R.id.container, DetailViewFragment.newInstance(position, movie, 0))
+//                .addToBackStack(null)
+//                .commit();
+//
+//    }
+
+
+//
+//            case R.id.itemYouTube:
+//                //check if the youtube app is installed in the device
+//                if (YouTubeIntents.canResolvePlayVideoIntent(this)) {
+//                    //Opens the video in the YouTube app
+//                    startActivity(YouTubeIntents.createPlayVideoIntent(this, "1d0O8MAMyAM"));
+//                    //startActivity(YouTubeIntents.createPlayVideoIntentWithOptions(this, "68A_HPYGdlk", false, true));
+//                }
+//                break;*//*
+//
+//
+//            default:
+//                getSupportFragmentManager().beginTransaction()
+//                        .replace(R.id.container_main_nav, FragmentRecyclerView.newInstance(0))
+//                        .addToBackStack(null)
+//                        .commit();
+//                break;
+//        }
+//        drawerLayout.closeDrawer(GravityCompat.START);
+//        return true;
+//    }
+
+activity main
+    <include
+        layout="@layout/app_bar_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+		
+		
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/containerRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbarRecyclerView"
+        tools:context=".MainActivity"
+        tools:ignore="MergeRootFrame">
+
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/framelayout_container_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+		
+		
+    productNameTV = (TextView) view.findViewById(R.id.);
+    productImage = (ImageView) view.findViewById(R.id.);
+    productPriceTV = (TextView) view.findViewById(R.id.ProductPrice);
+    productWeightTV = (TextView) view.findViewById(R.id.);
+    productDescriptionTV = (TextView) view.findViewById(R.id.);
+    productAISNTV = (TextView) view.findViewById(R.id.);
+
+	
+	
+	  /*  protected void replaceFragment(HashMap<String, ?> data, View sharedImage) {
+        mFragment = Fragment_MasterDetail.newInstance(data, sharedImage);
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.main_container, mFragment)
+                    .addToBackStack(null)
+                    .commit();
+        }*/
+
+		
+		
+		     <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></android.support.v7.widget.Toolbar>
+			
+			
+			
+			       <ImageView
+                android:id="@+id/action_edit"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/pen" />
