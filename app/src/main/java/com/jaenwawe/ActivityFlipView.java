@@ -11,19 +11,22 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 
 import java.util.List;
-
 import se.emilsjolander.flipview.FlipView;
 
 public class ActivityFlipView extends AppCompatActivity {
 
     public static final String PRODUCT_ID = "PRODUCT_ID";
     private static final int MENU_ITEM_LOGOUT = 1001;
-    private static String webUrl = "https://www.amazon.com";
+    private static String webUrl = "https://www.amazon.com/";
     private static String email = "jnwawe@syr.edu";
     private CoordinatorLayout coordinatorLayout;
     private List<Product> products = DataProvider.productList;
+    private int position = 0;
+    private Product product = DataProvider.productList.get(position);
+    String productID = product.getProductId();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,24 +80,19 @@ public class ActivityFlipView extends AppCompatActivity {
                 }
             }
         });
-
         ProductListAdapter adapter = new ProductListAdapter(
                 this, R.layout.list_item, products);
         ListView lv = (ListView) findViewById(R.id.listView);
         lv.setAdapter(adapter);
-
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ActivityFlipView.this, DetailActivity.class);
-
                 Product product = products.get(position);
                 intent.putExtra(PRODUCT_ID, product.getProductId());
-
                 startActivity(intent);
             }
         });
-
 */
 
     }
@@ -125,6 +123,11 @@ public class ActivityFlipView extends AppCompatActivity {
                 return true;
             case R.id.action_web:
                 //Go to the website
+                //AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+                //Integer index = this.products.
+                //int index = info.position;
+             //   webUrl = String.valueOf(new StringBuilder(webUrl +"/"+ productID+"/"));
+
                 Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(webUrl));
                 if (webIntent.resolveActivity(getPackageManager()) != null) {
                     startActivity(webIntent);
@@ -141,7 +144,6 @@ public class ActivityFlipView extends AppCompatActivity {
                         .setAction("Action", null).show();
                 return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }

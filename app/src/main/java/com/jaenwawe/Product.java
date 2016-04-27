@@ -1,6 +1,5 @@
 package com.jaenwawe;
 
-
 public class Product {
 
     private String productId;

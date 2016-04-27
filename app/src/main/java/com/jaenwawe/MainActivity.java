@@ -1,6 +1,7 @@
 package com.jaenwawe;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -10,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
@@ -74,6 +76,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            Toast.makeText(MainActivity.this, getString(R.string.main_orientation_toast), Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(MainActivity.this, getString(R.string.main_landscape_orientation_toast), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
 
@@ -111,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.itemGoogleMap:
                 final Intent mapIntent = new Intent(this, MapsActivity.class);
                 startActivity(mapIntent);
-            break;
+                break;
             case R.id.itemCamera:
                 Intent intentCamera = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intentCamera, 0);

@@ -168,8 +168,8 @@ public class FragmentGoogleMap extends Fragment implements
             @Override
             public void onMapLongClick(LatLng lat) {
                 final Marker marker = mMap.addMarker(new MarkerOptions()
-                        .title("self defined marker")
-                        .snippet("Hello!")
+                        .title(String.valueOf(R.string.marker_title))
+                        .snippet(String.valueOf(R.string.greeting))
                         .position(lat).visible(true)
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))//.icon(BitmapDescriptorFactory.fromResource(R.drawable.flag))
                 );

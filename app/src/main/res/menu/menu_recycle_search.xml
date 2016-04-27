@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/action_search"
         android:title="@string/action_search"
@@ -12,19 +8,20 @@
         android:layout_height="wrap_content"
         android:icon="@drawable/green_share"
         app:actionViewClass="android.support.v7.widget.SearchView"
-        app:showAsAction="always"/>
+        app:showAsAction="never"/>
 
     <item android:id="@+id/trash_can"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/up_arrow_deep_blue_black_clip_art_thumb"
-        android:title="Delete" />
+        app:showAsAction="never"
+        android:icon="@drawable/trashcan"
+        android:title="@string/Trash" />
 
     <item android:id="@+id/fragment_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:icon="@drawable/fragment"
-        android:title="Fragment Item"
+        android:title="@string/fragment_item"
         app:showAsAction="ifRoom"/>
 
 </menu>

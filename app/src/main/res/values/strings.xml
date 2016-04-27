@@ -55,5 +55,20 @@
     <string name="select_cart">You selected the Shopping Cart</string>
     <string name="select_logout">You selected Logout</string>
     <string name="flip_view">Flip View</string>
+    <string name="greeting">Greetings</string>
+    <string name="marker_title">marker title</string>
+    <string name="main_orientation_toast">"Your orientation is portrait"</string>
+    <string name="main_landscape_orientation_toast">Your orientation is landscape</string>
+    <string name="fragment_item">Fragment Item</string>
+    <string name="Trash">Delete</string>
+    <string name="addition_info">Please send some information!</string>
+    <string name="request_info">Information request</string>
+    <string name="mail_to">mailto:</string>
+    <string name="selected_settings">You selected settings</string>
+    <string name="set_Action">Action</string>
+    <string name="snackbar_coordinatorlayout">You selected the Shopping Cart</string>
+    <string name="selected_logout">You selected Logout</string>
+    <string name="android_studio">Android Studio</string>
+    <string name="course">CIS 600 Spring 2016</string>
 
 </resources>
