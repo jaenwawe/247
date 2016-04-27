@@ -11,13 +11,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
         // RecyclerViewFragment.OnListItemSelectedListener,
 {
-    private Toolbar toolbar;
-    private NavigationView navigationView;
-    private DrawerLayout drawerLayout;
-
     MenuItem menuItemAboutMe;
     MenuItem menuItemonHand;
     MenuItem menuItemPending;
@@ -25,11 +22,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     MenuItem menuItemYouTube;
     MenuItem menuItemMaps;
     MenuItem menuItemCamera;
-
-    private ActionBarDrawerToggle actionBarDrawerToggle;
     ProductData product = new ProductData();
     int position = 0;
-
+    private Toolbar toolbar;
+    private NavigationView navigationView;
+    private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle actionBarDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container_main_nav, Fragment_AboutMe.newInstance("1", "2"))
-                    .addToBackStack(null)
+                    //.addToBackStack(null)
                     .commit();
         }
     }
@@ -93,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.itemInventoryPending:
-                Intent intentInventoryPending = new Intent(getApplicationContext(), ActivityRecyclerView.class);
+                Intent intentInventoryPending = new Intent(getApplicationContext(), ActivityFlipView.class);
                 startActivity(intentInventoryPending);
                 break;
 

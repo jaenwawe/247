@@ -12,6 +12,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ActivityCoordinatorLayout">
 
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/activityCoordinatorBar"
         android:layout_width="match_parent"
@@ -31,9 +32,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:layout_behavior=".ShrinkBehavior"
+        android:src="@android:drawable/ic_dialog_email"
 
-        android:src="@android:drawable/ic_dialog_email" />
+        app:layout_behavior=".ShrinkBehavior" />
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -42,8 +43,8 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbarCordinator"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
         tools:context=".MainActivity"
-        tools:ignore="MergeRootFrame"
-        app:layout_scrollFlags="scroll|enterAlways|snap">
+        tools:ignore="MergeRootFrame">
     </FrameLayout>
 </android.support.design.widget.CoordinatorLayout>

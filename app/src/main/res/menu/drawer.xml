@@ -17,7 +17,7 @@
         android:id="@+id/itemInventoryPending"
         android:checked="false"
         android:icon="@drawable/delivery"
-        android:title="@string/recycleView" />
+        android:title="@string/flip_view" />
 
 
     <item
@@ -25,9 +25,6 @@
         android:checked="false"
         android:icon="@drawable/greenbox"
         android:title="@string/recycleView" />
-    <item
-        android:icon="@drawable/ic_menu_camera"
-        android:title="UnorderedInventory" />
 
     <item
         android:id="@+id/itemCamera"
@@ -38,7 +35,7 @@
 
     <item
         android:id="@+id/itemGoogleMap"
-        android:icon="@drawable/ic_menu_camera"
+        android:icon="@drawable/ic_satellite_black_24dp"
         android:title="GoogleMap" />
 
 
