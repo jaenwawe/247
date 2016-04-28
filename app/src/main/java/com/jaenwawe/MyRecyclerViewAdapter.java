@@ -2,17 +2,13 @@ package com.jaenwawe;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.util.LruCache;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.youtube.player.YouTubeThumbnailLoader;
-import com.google.android.youtube.player.YouTubeThumbnailView;
 
 import java.util.HashMap;
 import java.util.List;
@@ -111,50 +107,50 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         public ImageView vIcon;
         public TextView vTitle;
         public TextView vDescription;
-        public CheckBox vCheckbox;
+        public ImageView vOverflow;
 
         public void bindProductData(Map<String, ?> Product) {
             vTitle.setText((String) Product.get("name"));
             vDescription.setText((String) Product.get("description"));
             vIcon.setImageResource((Integer) Product.get("image"));
-            vCheckbox.setChecked((Boolean) Product.get("selection"));
         }
 
         public ViewHolder(View v) {
-            super(v); //What does this do?
+            super(v);
             vIcon = (ImageView) v.findViewById(R.id.icon);
             vTitle = (TextView) v.findViewById(R.id.title);
             vDescription = (TextView) v.findViewById(R.id.description);
-            vCheckbox = (CheckBox) v.findViewById(R.id.selection);
+            vOverflow = (ImageView) v.findViewById(R.id.selection);
 
-            vCheckbox.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    HashMap item = (HashMap) mDataset.get(getAdapterPosition());
-                    item.put("selection", true);
-                }
-            });
-
-
-            v.setOnClickListener((new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (mItemClickListener != null) {
-                        mItemClickListener.onItemClick(v, getAdapterPosition());
+            if (vOverflow != null) {
+                vOverflow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (mItemClickListener != null) {
+                            mItemClickListener.onOverflowMenuClick(v, getAdapterPosition());
+                        }
                     }
-                }
-            }));
+                });
 
-            v.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    if (mItemClickListener != null)
-                        mItemClickListener.onItemLongClick(v, getAdapterPosition());
+                v.setOnClickListener((new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (mItemClickListener != null) {
+                            mItemClickListener.onItemClick(v, getAdapterPosition());
+                        }
+                    }
+                }));
 
-                    return true;
-                }
-            });
+                v.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View v) {
+                        if (mItemClickListener != null)
+                            mItemClickListener.onItemLongClick(v, getAdapterPosition());
+
+                        return true;
+                    }
+                });
+            }
         }
     }
 }

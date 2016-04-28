@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import java.util.List;
+
 import se.emilsjolander.flipview.FlipView;
 
 public class ActivityFlipView extends AppCompatActivity {
@@ -33,11 +33,14 @@ public class ActivityFlipView extends AppCompatActivity {
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator_flipview);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_flipview);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_flipview);
+
+
+        android.support.design.widget.FloatingActionButton fab = (android.support.design.widget.FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                // Send an email
+            public void onClick(View v) {
+                CoordinatorLayout coordinatorLayout = (CoordinatorLayout) findViewById(R.id.container_details_flip_view);
+
                 String[] addresses = {email};
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
                 intent.setData(Uri.parse("mailto:"));
@@ -46,9 +49,14 @@ public class ActivityFlipView extends AppCompatActivity {
                 intent.putExtra(Intent.EXTRA_TEXT, "Please send some information!");
                 if (intent.resolveActivity(getPackageManager()) != null) {
                     startActivity(intent);
+
+                    Snackbar snackbar = Snackbar
+                            .make(coordinatorLayout, R.string.fab_statement, Snackbar.LENGTH_LONG);
+                    snackbar.show();
                 }
             }
         });
+
         ProductListAdapter adapter = new ProductListAdapter(
                 this, R.layout.content_flipview, products);
 

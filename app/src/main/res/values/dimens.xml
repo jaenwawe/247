@@ -12,9 +12,17 @@
     <dimen name="logo_side">150dp</dimen>
     <dimen name="headline_size">24sp</dimen>
     <dimen name="content_size">14sp</dimen>
-
     <dimen name="flipboard_top_padding">42dp</dimen>
     <dimen name="below_toolbar">30dp</dimen>
+    <dimen name="card_text_size">20dp</dimen>
+    <dimen name="card_row_bottom_padding">5dp</dimen>
+    <dimen name="card_row_right_paddin">5dp</dimen>
+    <dimen name="row_text_size">12dp</dimen>
 
+    <dimen name="text_tablet_padding_bottom">50dp</dimen>
+    <dimen name="tablet_title_size">20sp</dimen>
+    <dimen name="tablet_text_size">30dp</dimen>
+    <dimen name="tablet_image_height">250dp</dimen>
+    <dimen name="tablet_image_width">300dp</dimen>
 
 </resources>

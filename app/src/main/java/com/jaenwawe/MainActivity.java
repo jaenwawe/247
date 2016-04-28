@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container_main_nav, Fragment_AboutMe.newInstance("1", "2"))
-                    .addToBackStack(null)
                     .commit();
         }
     }
@@ -94,7 +93,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.itemAboutMe:
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.container_main_nav, Fragment_AboutMe.newInstance("1", "2"))
-                        .addToBackStack(null)
                         .commit();
                 break;
             case R.id.itemOnHand:

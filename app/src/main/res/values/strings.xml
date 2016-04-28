@@ -70,5 +70,6 @@
     <string name="selected_logout">You selected Logout</string>
     <string name="android_studio">Android Studio</string>
     <string name="course">CIS 600 Spring 2016</string>
+    <string name="fab_statement">Need Help Call 212-810-1609</string>
 
 </resources>

@@ -122,16 +122,16 @@ public class ProductData {
 
 	private HashMap createProduct(String name, int image, String description, String aisn,
 								  String weight, double price, String url) {
-		HashMap movie = new HashMap();
-		movie.put("image",image);
-		movie.put("name", name);
-		movie.put("description", description);
-		movie.put("AISN", aisn);
-		movie.put("weight",weight);
-		movie.put("price",price);
-		movie.put("url", url);
-		movie.put("selection",false);
-		return movie;
+		HashMap product = new HashMap();
+		product.put("image",image);
+		product.put("name", name);
+		product.put("description", description);
+		product.put("AISN", aisn);
+		product.put("weight",weight);
+		product.put("price",price);
+		product.put("url", url);
+		product.put("selection",false);
+		return product;
 	}
 
 	public void addItem(int position) {
@@ -139,6 +139,10 @@ public class ProductData {
 		HashMap item =  (HashMap) productList.get(position);
 		HashMap cloned = (HashMap) item.clone();
 		productList.add((position + 1), cloned);
+	}
+
+	public void removeItem(int position) {
+		productList.remove(position);
 	}
 	public int findFirst(String query) {
 		int i = productList.size();

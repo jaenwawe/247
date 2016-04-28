@@ -13,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 import java.util.HashMap;
 
@@ -20,15 +21,15 @@ import java.util.HashMap;
 /**
  * Created by Jae Nwawe on 2/25/2016.
  */
-public class FragmentRecyclerView extends Fragment {
+public class FragmentRecyclerView extends Fragment implements Activity_MasterDetails.OnDetailItemSelectedListener{
     RecyclerView mRecyclerView; //Jae added
     ProductData productData; //Jae Added to accomplish pg 19
 
-    private OnRowClick mDetailViewListener;
-
+    private OnRowClick mDetailRowListener;
     RecyclerView.LayoutManager mLayoutManager;
     MyRecyclerViewAdapter mRecyclerViewAdapter;
-
+    private MyRecyclerViewAdapter mListener;
+    private OnItemClickListenerFragementtoActivity mDetailViewListener;
     private static final String ARG_SECTION_NUMBER = "sectionNumber";
 
     public static FragmentRecyclerView newInstance(int sectionNumber) {
@@ -39,6 +40,13 @@ public class FragmentRecyclerView extends Fragment {
         return fragment;
     }
 
+    public void onDetailItemSelectedListener(int position, HashMap<String, ?> movie) {
+
+        //call master_detail activity
+    }
+    public interface OnItemClickListenerFragementtoActivity {
+        void onItemClick(View v, int position);
+    }
     public interface OnRowClick {
         void onItemSelected(HashMap<String, ?> Product, View sharedImage);
         //void onItemClick(View v, int position);
@@ -48,7 +56,7 @@ public class FragmentRecyclerView extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnRowClick) {
-            mDetailViewListener = (OnRowClick) context;
+            mDetailRowListener = (OnRowClick) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnRowClick");
@@ -111,10 +119,7 @@ public class FragmentRecyclerView extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_recycleview, container, false);
-        //card goes into mRecyclerView
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.cardList);
-
-      //  mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager((getActivity()));
         mRecyclerView.setLayoutManager(mLayoutManager);
 
@@ -123,18 +128,38 @@ public class FragmentRecyclerView extends Fragment {
         mRecyclerView.setAdapter(mRecyclerViewAdapter);
 
         mRecyclerViewAdapter.setOnItemClickListener(new MyRecyclerViewAdapter.OnItemClickListener() {
-
             @Override
             public void onItemClick(View v, int position) {
-                //return control to Activity
-                mDetailViewListener.onItemSelected(productData.getItem(position), v);
+                mDetailRowListener.onItemSelected(productData.getItem(position), v);
             }
             @Override
             public void onItemLongClick(View v, int position) {
+                mDetailViewListener.onItemClick(v, position);
             }
 
             @Override
-            public void onOverflowMenuClick(View v, int position) {
+            public void onOverflowMenuClick(View v, final int position) {
+                PopupMenu popupMenu = new PopupMenu(getActivity(), v);
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.item_duplicate:
+                                productData.addItem(position);
+                                mRecyclerViewAdapter.notifyItemInserted(position + 1);
+                                return true;
+                            case R.id.item_delete:
+                                productData.removeItem(position);
+                                mRecyclerViewAdapter.notifyItemRemoved(position);
+                                return true;
+                            default:
+                                return false;
+                        }
+                    }
+                });
+                MenuInflater inflater = popupMenu.getMenuInflater();
+                inflater.inflate(R.menu.contextual_popup_menu, popupMenu.getMenu());
+                popupMenu.show();
             }
         });
         return rootView;

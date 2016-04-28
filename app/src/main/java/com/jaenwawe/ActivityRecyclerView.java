@@ -24,24 +24,12 @@ public class ActivityRecyclerView extends AppCompatActivity implements FragmentR
     private SearchView search;
 
     @Override
-    public void onItemSelected(HashMap<String, ?> product, View sharedImage) {
-
-        productData = new ProductData();
-        Fragment_MasterDetail details = Fragment_MasterDetail.newInstance(product, sharedImage);
-        details.setSharedElementEnterTransition(new DetailsTransition());
-        details.setEnterTransition(new Fade());
-        details.setExitTransition(new Fade());
-        details.setSharedElementReturnTransition(new DetailsTransition());
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container_recyclerview, details)
-                .addToBackStack(null)
-                .commit();
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view);
+        toolbar = (Toolbar) findViewById(R.id.toolbar_recyclerview);
+        toolbar.setVisibility(View.VISIBLE);
+        setSupportActionBar(toolbar);
 
         android.support.design.widget.FloatingActionButton fab = (android.support.design.widget.FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -49,15 +37,10 @@ public class ActivityRecyclerView extends AppCompatActivity implements FragmentR
             public void onClick(View v) {
                 CoordinatorLayout coordinatorLayout = (CoordinatorLayout) findViewById(R.id.container_recyclerview);
                 Snackbar snackbar = Snackbar
-                        .make(coordinatorLayout, "Need Help Call 212-810-1609", Snackbar.LENGTH_LONG);
-
+                        .make(coordinatorLayout, R.string.fab_statement, Snackbar.LENGTH_LONG);
                 snackbar.show();
             }
         });
-
-        toolbar = (Toolbar) findViewById(R.id.toolbar_recyclerview);
-        toolbar.setVisibility(View.VISIBLE);
-        setSupportActionBar(toolbar);
 
         if (savedInstanceState == null) {
             FragmentRecyclerView fragment = FragmentRecyclerView.newInstance(0);
@@ -72,4 +55,19 @@ public class ActivityRecyclerView extends AppCompatActivity implements FragmentR
                     .commit();
         }
     }
+
+    @Override
+    public void onItemSelected(HashMap<String, ?> product, View sharedImage) {
+        productData = new ProductData();
+        Fragment_MasterDetail details = Fragment_MasterDetail.newInstance(product, sharedImage);
+        details.setSharedElementEnterTransition(new DetailsTransition());
+        details.setEnterTransition(new Fade());
+        details.setExitTransition(new Fade());
+        details.setSharedElementReturnTransition(new DetailsTransition());
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_recyclerview, details)
+                .addToBackStack(null)
+                .commit();
+    }
+
 }
