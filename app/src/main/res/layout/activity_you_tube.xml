@@ -12,17 +12,19 @@
     tools:context=".YouTubeActivity">
     <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/youTubePlayerView"
+        android:layout_gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="155dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="8dp"
         android:text="Hear from the 247 author"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_gravity="center_horizontal" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

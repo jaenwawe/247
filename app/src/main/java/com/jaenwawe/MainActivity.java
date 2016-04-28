@@ -13,9 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
-        // RecyclerViewFragment.OnListItemSelectedListener,
 {
     MenuItem menuItemAboutMe;
     MenuItem menuItemonHand;
@@ -24,12 +22,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     MenuItem menuItemYouTube;
     MenuItem menuItemMaps;
     MenuItem menuItemCamera;
+
     ProductData product = new ProductData();
-    int position = 0;
+
     private Toolbar toolbar;
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
+    private int position = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         menuItemCamera = (MenuItem) findViewById(R.id.itemCamera);
 
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
+       // navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(this);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container_main_nav, Fragment_AboutMe.newInstance("1", "2"))
-                    //.addToBackStack(null)
+                    .addToBackStack(null)
                     .commit();
         }
     }

@@ -2,11 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragment_about_me"
-    tools:context=".Fragment_AboutMe">
-
-//Change FrameLayout to Relative.  Only user Framelayout for fragement
-
+    android:id="@+id/fragment_about_me">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,9 +46,8 @@
             android:layout_height="wrap_content"
             android:text="Jae Nwawe is a Software Engineer and New York State Licensed Attorney. She would like to be a program manager that used prototypes to obtain marketing, and then share the vision with a development team using incremental software engineer methodologies."
             android:id="@+id/textView3"
-            android:editable="true"
             android:padding="50dp"
-            android:layout_weight="0.35"
+            android:layout_weight="0.24"
             android:paddingTop="50dp" />
     </LinearLayout>
 

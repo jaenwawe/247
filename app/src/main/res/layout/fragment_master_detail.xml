@@ -9,7 +9,8 @@
         android:id="@+id/fragment_master_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
+        android:paddingTop="30dp"
+        android:padding="15dp"
         android:orientation="vertical"
         tools:context=".Fragment_MasterDetail">
 
@@ -21,44 +22,57 @@
             android:paddingTop="50dp"
             android:layout_gravity="center_horizontal"
             android:text="Title"
-            android:textSize="15sp" />
+            android:textSize="20sp" />
 
         <ImageView
             android:id="@+id/ProductImage"
             android:layout_width="150dp"
             android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
-            android:padding="@dimen/activity_vertical_margin" />
+            android:padding="@dimen/activity_vertical_margin"
+            android:paddingTop="16dp"
+            android:paddingBottom="20dp" />
 
         <TextView
             android:id="@+id/ProductDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Description" />
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:text="Description"
+            android:paddingBottom="20dp" />
 
 
         <TextView
             android:id="@+id/ProductWeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="ProductWeight" />
-
+            android:layout_gravity="left"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:text="ProductWeight"
+            android:paddingBottom="20dp" />
 
         <TextView
             android:id="@+id/ProductAISN"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="ProductAISN" />
+            android:gravity="left"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:text="ProductAISN"
+            android:paddingBottom="20dp" />
 
 
         <TextView
             android:id="@+id/ProductPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="left"
             android:layout_centerHorizontal="true"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
             android:text="ProductPrice" />
 
 
